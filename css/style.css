@@ -1,4 +1,4 @@
-@import "../common.css";
+@import "./common.css";
 .menu {
   position: fixed;
   top: 0;
@@ -54,6 +54,7 @@ section .content .cover > * > h1 {
   align-items: center;
 }
 section .content .cover .media {
+  width: 50%;
   height: 100%;
   font-size: 0;
 }
@@ -61,7 +62,6 @@ section .content .cover .media img {
   height: calc(100% - 2.5vw);
 }
 section .content .cover .comment {
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
@@ -83,7 +83,7 @@ section .content .details .detail {
 section .content .details .detail h2 {
   font-size: 1vw;
   font-weight: 600;
-  padding: 0.4vw;
+  padding: 0.8vw 0.4vw;
 }
 section .content .details .detail ul {
   padding: 0.4vw;
@@ -115,5 +115,5 @@ section .content .details .detail a img {
   position: absolute;
   top: 40%;
   transform: translateY(-50%);
-  height: 100%;
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */
