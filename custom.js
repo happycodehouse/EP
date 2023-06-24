@@ -59,6 +59,11 @@ function activateMenuItem(index) {
 
   if (index === 2) {
     document.querySelector('.menu').style.borderColor = '#fff';
+    navTrigger.forEach(function(trigger, i) {
+      if (i !== index) {
+        trigger.style.color = '#fff';
+      }
+    });
   } else {
     document.querySelector('.menu').style.borderColor = '';
   }
