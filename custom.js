@@ -10,30 +10,56 @@ scrollContent.forEach(function(content) {
 // 클릭 이벤트 핸들러 등록
 navTrigger.forEach(function(trigger, index) {
   trigger.onclick = function() {
-    // 모든 span 요소의 글자 색상을 #adadad로 설정
-    navTrigger.forEach(function(element) {
-      element.style.color = '#adadad';
-      element.style.textDecoration = 'none';
-    });
-
-    // 클릭한 span 요소의 글자 색상을 #1a1a1a로 설정
-    trigger.style.color = '#1a1a1a';
-    trigger.style.textDecoration = 'underline';
-
+    activateMenuItem(index);
     window.scroll({
       top: scrollOffsets[index],
       behavior: 'smooth'
     });
-
-    // 3번째 content에 도달했을 때 menu의 보더 색상과 다른 span 요소의 글자 색상 변경
-    if (index === 2) {
-      document.querySelector('.menu').style.borderColor = '#fff';
-      navTrigger.forEach(function(element) {
-        element.style.color = '#fff';
-      });
-      navTrigger[2].style.color = '#1a1a1a'
-    } else {
-      document.querySelector('.menu').style.borderColor = '';
-    }
   };
 });
+
+// 스크롤 이벤트 핸들러 등록
+window.addEventListener('scroll', function() {
+  let currentPosition = window.pageYOffset;
+
+  // 현재 위치와 가장 가까운 content의 인덱스를 찾기
+  let closestIndex = findClosestIndex(currentPosition, scrollOffsets);
+
+  // 해당 인덱스의 menu span 활성화
+  activateMenuItem(closestIndex);
+});
+
+// 가장 가까운 content의 인덱스를 찾는 함수
+function findClosestIndex(position, offsets) {
+  let closestIndex = 0;
+  let distance = Math.abs(position - offsets[0]);
+
+  for (let i = 1; i < offsets.length; i++) {
+    let currentDistance = Math.abs(position - offsets[i]);
+    if (currentDistance < distance) {
+      distance = currentDistance;
+      closestIndex = i;
+    }
+  }
+
+  return closestIndex;
+}
+
+// menu span 활성화 함수
+function activateMenuItem(index) {
+  navTrigger.forEach(function(trigger, i) {
+    if (i === index) {
+      trigger.style.color = '#1a1a1a';
+      trigger.style.textDecoration = 'underline';
+    } else {
+      trigger.style.color = '#adadad';
+      trigger.style.textDecoration = 'none';
+    }
+  });
+
+  if (index === 2) {
+    document.querySelector('.menu').style.borderColor = '#fff';
+  } else {
+    document.querySelector('.menu').style.borderColor = '';
+  }
+}
