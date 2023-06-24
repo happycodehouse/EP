@@ -1,0 +1,119 @@
+@import "../common.css";
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 2.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+}
+.menu span {
+  font-weight: 700;
+  font-size: 0.8vw;
+  margin: 0 2vw;
+  color: #adadad;
+  cursor: pointer;
+}
+.menu span.active {
+  text-decoration: underline;
+  color: #1a1a1a;
+}
+
+section .content {
+  width: 100%;
+  height: 100vh;
+  padding-top: 2.5vw;
+  overflow: hidden;
+}
+section .content.get_up {
+  position: relative;
+}
+section .content.get_up video {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+section .content .cover {
+  display: flex;
+  height: calc((100vh - 2.5vw) * 0.6);
+}
+section .content .cover > * > h1 {
+  height: 2.5vw;
+  font-size: 0.8vw;
+  font-weight: 600;
+  padding: 0 0.4vw;
+  display: flex;
+  align-items: center;
+}
+section .content .cover .media {
+  height: 100%;
+  font-size: 0;
+}
+section .content .cover .media img {
+  height: calc(100% - 2.5vw);
+}
+section .content .cover .comment {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+section .content .cover .comment h1 {
+  padding: 0 0.8vw;
+}
+section .content .cover .comment p {
+  font-size: 0.7vw;
+  line-height: 1.4;
+  font-weight: 500;
+  padding: 0.8vw;
+}
+section .content .details {
+  display: flex;
+}
+section .content .details .detail {
+  flex: 1;
+}
+section .content .details .detail h2 {
+  font-size: 1vw;
+  font-weight: 600;
+  padding: 0.4vw;
+}
+section .content .details .detail ul {
+  padding: 0.4vw;
+}
+section .content .details .detail ul li {
+  font-size: 0.77vw;
+  font-weight: 700;
+  margin: 0.8vw 0;
+}
+section .content .details .detail p {
+  font-size: 0.77vw;
+  padding: 0.4vw;
+}
+section .content .details .detail p em {
+  display: inline-block;
+  min-width: 8vw;
+  margin-right: 0.8vw;
+  margin-bottom: 0.4vw;
+  font-weight: 600;
+  font-size: 0.88vw;
+}
+section .content .details .detail a {
+  display: block;
+  height: calc((100vh - 2.5vw) * 0.4);
+  overflow: hidden;
+  position: relative;
+}
+section .content .details .detail a img {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  height: 100%;
+}/*# sourceMappingURL=style.css.map */
